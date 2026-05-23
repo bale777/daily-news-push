@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>肖蓓 — BA顾问（QMS/MES方向）</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --accent: #2c6faa;
+    --bg: #f8f9fb;
+    --card: #ffffff;
+    --text: #2d3748;
+    --text-light: #5a6c7d;
+    --border: #e2e8f0;
+    --tag-bg: #e8f0f9;
+    --tag-text: #2c6faa;
+    --gold: #b8860b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 20px 60px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #264d73 40%, #2c6faa 100%);
+    color: #fff;
+    padding: 48px 48px 36px;
+    border-radius: 16px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+  .header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+  .header .subtitle span { margin: 0 10px; opacity: 0.5; }
+  .header .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 13px;
+    opacity: 0.85;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* Sections */
+  .section {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 28px 34px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .section h2 {
+    font-size: 18px;
+    color: var(--primary);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .icon { font-size: 20px; }
+
+  /* Summary */
+  .summary-text {
+    font-size: 14.5px;
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.8;
+  }
+  .highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    margin-top: 14px;
+  }
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .highlight-item .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Experience */
+  .exp-block { margin-bottom: 22px; }
+  .exp-block:last-child { margin-bottom: 0; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+  }
+  .exp-header .company {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .exp-header .duration {
+    font-size: 13px;
+    color: var(--text-light);
+    white-space: nowrap;
+  }
+  .exp-role {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .exp-sub { margin-top: 14px; }
+  .exp-sub h4 {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .exp-sub li {
+    font-size: 13.5px;
+    color: var(--text-light);
+    margin-left: 16px;
+    margin-bottom: 4px;
+    line-height: 1.65;
+    position: relative;
+  }
+  .exp-sub li::marker { color: var(--accent); }
+
+  /* Project table */
+  .proj-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .proj-table th {
+    background: #f0f5fa;
+    color: var(--primary);
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .proj-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-light);
+  }
+  .proj-table tr:last-child td { border-bottom: none; }
+  .proj-table .award {
+    display: inline-block;
+    background: #fff8e6;
+    color: var(--gold);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* Skills */
+  .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; }
+  .skill-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 13.5px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f3f7;
+  }
+  .skill-cat {
+    font-weight: 600;
+    color: var(--primary);
+    white-space: nowrap;
+    min-width: 85px;
+    font-size: 13px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    font-weight: 500;
+  }
+  .tag.highlight {
+    background: #e6f4ea;
+    color: #1a7a3a;
+  }
+
+  /* Certs */
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .cert-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    padding: 8px 12px;
+    background: #fafbfc;
+    border-radius: 6px;
+  }
+  .cert-item .cert-name { color: var(--text); font-weight: 500; }
+  .cert-item .cert-org { color: var(--text-light); font-size: 12.5px; }
+
+  /* Education */
+  .edu-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .edu-block .school { font-size: 15px; font-weight: 600; color: var(--primary); }
+  .edu-block .degree { font-size: 14px; color: var(--text); }
+  .edu-block .date { font-size: 13px; color: var(--text-light); }
+
+  @media (max-width: 640px) {
+    .header { padding: 32px 24px 24px; }
+    .section { padding: 20px 18px; }
+    .highlights, .skill-grid, .cert-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 28px; }
+  }
+
+  .footer {
+    text-align: center;
+    color: #b0b8c1;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <h1>肖&emsp;蓓</h1>
+  <div class="subtitle">
+    BA顾问（QMS / MES 方向）<span>|</span>8年制造业数字化经验<span>|</span>国际项目交付<span>|</span>AI智能体落地
+  </div>
+  <div class="contact">
+    <span>13164648592</span>
+    <span>443274042@qq.com</span>
+    <span>湖北孝感</span>
+    <span>1996.09</span>
+  </div>
+</div>
+
+<!-- ===== 专业概要 ===== -->
+<div class="section">
+  <h2><span class="icon">✦</span> 专业概要</h2>
+  <p class="summary-text">
+    8年制造业数字化经验，深耕<strong>QMS质量管理系统</strong>与<strong>MES制造执行系统</strong>两大领域。
+    先后服务于TTi（外资制造）、宁德时代（新能源龙头）、OPPO（全球智能终端），
+    从开发工程师成长为独立负责业务模块的BA，具备需求分析、方案设计到项目交付的<strong>全链路能力</strong>。
+  </p>
+  <div class="highlights">
+    <div class="highlight-item">
+      <span class="dot"></span>
+      <span><strong>QMS领域：</strong>独立负责制造质量管理全模块（首检/巡检/点检/新品认证/工序认证），实现PC端与移动端双端适配，打通品质标准制定→来料核查、设备采集数据监控、自动异常判定、改进闭环全流程线上化</span>
+    </div>
+    <div class="highlight-item">
+      <span class="dot"></span>
+      <span><strong>国际化交付：</strong>主导印尼工厂（2024）、印度工厂（2025）QMS系统推广上线，具备跨国项目协调与远程交付能力</span>
+    </div>
+    <div class="highlight-item">
+      <span class="dot"></span>
+      <span><strong>AI落地实践：</strong>基于火山引擎搭建公司级质量领域智能体"小智助手"，完成知识库接入、异常预警、报告总结、体系文件查询等核心功能设计，获公司25年AI创新大赛三等奖</span>
+    </div>
+    <div class="highlight-item">
+      <span class="dot"></span>
+      <span><strong>AI工具赋能：</strong>熟练使用Cursor、Kiro、Claude Code等AI工具产出PRD需求文档、搭建个人知识库SPEC、提炼SKILL、构建HTML高保真原型，快速定位与排查Bug</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 工作经验 ===== -->
+<div class="section">
+  <h2><span class="icon">✦</span> 工作经验</h2>
+
+  <!-- OPPO -->
+  <div class="exp-block">
+    <div class="exp-header">
+      <span class="company">OPPO 广东移动通信有限公司</span>
+      <span class="duration">2023.05 — 至今</span>
+    </div>
+    <div class="exp-role">BA（业务分析师） | 东莞</div>
+
+    <div class="exp-sub">
+      <h4>制造质量管理模块（QMS）—— 核心BA，独立负责</h4>
+      <ul>
+        <li>独立完成 需求分析 → UI设计 → 交互逻辑设计 → 高阶方案设计 → 开发评审 → 上线交付 全链路</li>
+        <li>编写核心功能需求说明书，设计PC端与移动端双端适配方案，覆盖首件检验、过程巡检、设备点检等核心品质查核业务</li>
+        <li>设计制程品质数据实时监控看板，建立异常自动判定规则引擎</li>
+        <li>打通 异常发现 → 判定 → 改进 → 闭环验证 全流程线上化，实现品质管理数字化</li>
+        <li>拉通上下游系统（IPD/IFS/WMS/MES/EAM等），设计系统间接口交互逻辑，保障数据一致性</li>
+        <li>把握需求进度，推进项目里程碑节点按时达成</li>
+      </ul>
+    </div>
+
+    <div class="exp-sub">
+      <h4>新品质量管理模块 —— 独立BA，0→1搭建</h4>
+      <ul>
+        <li>负责试产阶段新品制造质量管控体系建设，从零搭建核心业务模块</li>
+        <li>独立设计产品认证与工序认证两大核心模块，建立试产阶段质量管控标准与数字化流程</li>
+      </ul>
+    </div>
+
+    <div class="exp-sub">
+      <h4>AI智能体"小智助手" —— 公司级质量领域智能体，核心搭建者</h4>
+      <ul>
+        <li>基于公司火山引擎平台，搭建面向质量领域的对话式AI智能体</li>
+        <li>完成质量领域知识库建设与接入，覆盖体系文件、标准规范、历史案例</li>
+        <li>实现异常预警消息智能汇总、品质分析报告自动生成、体系文件智能查询等核心功能</li>
+        <li>获公司25年AI创新大赛三等奖</li>
+      </ul>
+    </div>
+
+    <div class="exp-sub">
+      <h4>公司级重点项目</h4>
+      <table class="proj-table">
+        <thead>
+          <tr><th>项目</th><th>时间</th><th>角色</th><th>成果</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>印尼工厂 QMS 推广上线</td><td>2024</td><td>核心成员</td><td>QMS系统在印尼工厂本地化适配与上线</td></tr>
+          <tr><td>印度工厂 QMS 推广上线</td><td>2025</td><td>核心成员</td><td>QMS系统在印度工厂推广部署</td></tr>
+          <tr><td>工单二期改造项目</td><td>2025</td><td>QMS改造主要负责人</td><td><span class="award">公司级2025年度最佳团队项目奖</span></td></tr>
+          <tr><td>大ODM变革项目</td><td>2026</td><td>QMS对接负责人</td><td>负责QMS侧变革对接与系统适配</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 宁德时代 -->
+  <div class="exp-block">
+    <div class="exp-header">
+      <span class="company">宁德时代 · 时代上汽</span>
+      <span class="duration">2022.04 — 2023.05</span>
+    </div>
+    <div class="exp-role">MES 系统工程师 | 宁德</div>
+    <ul style="margin-top:6px;">
+      <li style="font-size:13.5px;color:var(--text-light);margin-left:16px;margin-bottom:4px;">负责新工厂MES系统配套搭建，收集整理工厂需求、编写需求说明书并与总部开发团队对接，输出系统功能设计文档、测试报告、发布手册、用户操作手册</li>
+      <li style="font-size:13.5px;color:var(--text-light);margin-left:16px;margin-bottom:4px;">主导RFID物联网平台项目推进，与供应商对接MES系统接口，保障第三方软件与MES接口性能</li>
+      <li style="font-size:13.5px;color:var(--text-light);margin-left:16px;margin-bottom:4px;">协同供应商规划开发PDA安卓RFID应用，实现芯片感应与二维码双模识别，支撑移动端业务作业</li>
+    </ul>
+  </div>
+
+  <!-- TTi -->
+  <div class="exp-block">
+    <div class="exp-header">
+      <span class="company">TTi 创科电机制品有限公司</span>
+      <span class="duration">2018.09 — 2022.04</span>
+    </div>
+    <div class="exp-role">IT 助理工程师 | 东莞</div>
+    <ul style="margin-top:6px;">
+      <li style="font-size:13.5px;color:var(--text-light);margin-left:16px;margin-bottom:4px;">负责车间管家系统Web端功能开发与上线部署，与车间负责人对接需求推进</li>
+      <li style="font-size:13.5px;color:var(--text-light);margin-left:16px;margin-bottom:4px;">参与TMS系统多部门审批流程设计与实现，对接K2平台API</li>
+      <li style="font-size:13.5px;color:var(--text-light);margin-left:16px;margin-bottom:4px;">跟进Santo五金厂管理系统，负责硬件供应商Moxa对接CNC设备物联网及生产数据采集</li>
+      <li style="font-size:13.5px;color:var(--text-light);margin-left:16px;margin-bottom:4px;">负责VE工程价值管理系统，分析多部门工程项目财年数据，提供数据预测与BI报表</li>
+      <li style="font-size:13.5px;color:var(--text-light);margin-left:16px;margin-bottom:4px;">技术栈：.NET / C# / Oracle / SQL Server / Power BI / Fast Report</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== 教育背景 ===== -->
+<div class="section">
+  <h2><span class="icon">✦</span> 教育背景</h2>
+  <div class="edu-block">
+    <div>
+      <div class="school">武汉工程大学（一本）</div>
+      <div class="degree">计算机科学与技术 · 本科</div>
+    </div>
+    <div class="date">2014.09 — 2018.06</div>
+  </div>
+  <p style="font-size:13px;color:var(--text-light);margin-top:8px;">
+    主修：C / C++ / C# / Java / Android / 数据库设计 / Web网页设计 / 软件工程 / 单片机原理
+  </p>
+</div>
+
+<!-- ===== 技能专长 ===== -->
+<div class="section">
+  <h2><span class="icon">✦</span> 技能专长</h2>
+  <div class="skill-grid">
+    <div class="skill-row"><span class="skill-cat">业务领域</span><span class="skill-tags"><span class="tag">QMS质量管理</span><span class="tag">MES制造执行</span><span class="tag">WMS仓储管理</span><span class="tag">品质数字化</span></span></div>
+    <div class="skill-row"><span class="skill-cat">需求与设计</span><span class="skill-tags"><span class="tag">需求分析</span><span class="tag">PRD编写</span><span class="tag">UI原型设计</span><span class="tag">交互逻辑设计</span></span></div>
+    <div class="skill-row"><span class="skill-cat">技术栈</span><span class="skill-tags"><span class="tag">.NET</span><span class="tag">C#</span><span class="tag">Oracle</span><span class="tag">SQL Server</span><span class="tag">REST API</span></span></div>
+    <div class="skill-row"><span class="skill-cat">BI与报表</span><span class="skill-tags"><span class="tag">Power BI</span><span class="tag">Crystal Report</span><span class="tag">Fast Report</span></span></div>
+    <div class="skill-row"><span class="skill-cat">AI工具</span><span class="skill-tags"><span class="tag highlight">火山引擎</span><span class="tag highlight">Cursor</span><span class="tag highlight">Kiro</span><span class="tag highlight">Claude Code</span></span></div>
+    <div class="skill-row"><span class="skill-cat">测试工具</span><span class="skill-tags"><span class="tag">Postman</span><span class="tag">Loadrunner</span></span></div>
+    <div class="skill-row"><span class="skill-cat">项目管理</span><span class="skill-tags"><span class="tag">需求进度把控</span><span class="tag">里程碑管理</span><span class="tag">跨部门协调</span><span class="tag">跨国交付</span></span></div>
+    <div class="skill-row"><span class="skill-cat">语言</span><span class="skill-tags"><span class="tag">普通话（母语）</span><span class="tag">英语 CET-6</span></span></div>
+  </div>
+</div>
+
+<!-- ===== 证书荣誉 ===== -->
+<div class="section">
+  <h2><span class="icon">✦</span> 证书与荣誉</h2>
+  <div class="cert-grid">
+    <div class="cert-item"><span class="cert-name">公司级2025年度最佳团队项目奖（工单二期）</span><span class="cert-org">OPPO</span></div>
+    <div class="cert-item"><span class="cert-name">25年AI创新大赛三等奖</span><span class="cert-org">OPPO</span></div>
+    <div class="cert-item"><span class="cert-name">年度坚守奉献证书</span><span class="cert-org">时代上汽</span></div>
+    <div class="cert-item"><span class="cert-name">Power BI 培训认证</span><span class="cert-org">TTi</span></div>
+    <div class="cert-item"><span class="cert-name">英语四级 / 英语六级</span><span class="cert-org">CET</span></div>
+    <div class="cert-item"><span class="cert-name">优秀毕业生 / 优秀班干</span><span class="cert-org">武汉工程大学</span></div>
+  </div>
+</div>
+
+<div class="footer">在线简历 · 肖蓓 · BA顾问</div>
+
+</div>
+</body>
+</html>
