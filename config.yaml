@@ -1,0 +1,101 @@
+# ============================================
+# Daily News Push System Configuration
+# ============================================
+
+push:
+  # 推送渠道: serverchan, pushplus, both
+  provider: pushplus
+
+  serverchan:
+    sendkey: "${SERVERCHAN_SENDKEY}"
+    api_url: "https://sctapi.ftqq.com"
+
+  pushplus:
+    token: "${PUSHPLUS_TOKEN}"
+    api_url: "http://www.pushplus.plus/send"
+
+schedule:
+  times: ["09:00", "20:00"]
+  timezone: "Asia/Shanghai"
+
+content:
+  max_per_category: 10
+  max_total: 30
+  title_prefix_morning: "早间新闻速递"
+  title_prefix_evening: "晚间新闻速递"
+
+dedup:
+  title_similarity_threshold: 0.85
+  sent_retention_days: 30
+  dedup_window_days: 7
+
+feeds:
+  domestic:
+    - name: "新浪新闻-国内"
+      url: "https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2509&k=&num=20&r=0.2&callback=feedCallBack"
+      type: scrape
+      priority: 9
+      enabled: true
+      timeout: 15
+
+    - name: "今日头条-热点"
+      url: "https://is.snssdk.com/api/news/feed/v88/?category=news_hot"
+      type: toutiao
+      priority: 9
+      enabled: true
+      timeout: 15
+
+    - name: "新浪新闻-社会"
+      url: "https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2515&k=&num=20&r=0.2&callback=feedCallBack"
+      type: scrape
+      priority: 7
+      enabled: true
+      timeout: 15
+
+  international:
+    - name: "新浪新闻-国际"
+      url: "https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2510&k=&num=20&r=0.2&callback=feedCallBack"
+      type: scrape
+      priority: 9
+      enabled: true
+      timeout: 15
+
+    - name: "今日头条-国际"
+      url: "https://is.snssdk.com/api/news/feed/v88/?category=news_world"
+      type: toutiao
+      priority: 8
+      enabled: true
+      timeout: 15
+
+  finance:
+    - name: "新浪财经"
+      url: "https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2516&k=&num=20&r=0.2&callback=feedCallBack"
+      type: scrape
+      priority: 10
+      enabled: true
+      timeout: 15
+
+    - name: "今日头条-财经"
+      url: "https://is.snssdk.com/api/news/feed/v88/?category=news_finance"
+      type: toutiao
+      priority: 9
+      enabled: true
+      timeout: 15
+
+    - name: "新浪科技"
+      url: "https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2514&k=&num=20&r=0.2&callback=feedCallBack"
+      type: scrape
+      priority: 7
+      enabled: true
+      timeout: 15
+
+logging:
+  level: INFO
+  file: "logs/news_push.log"
+  max_bytes: 5242880
+  backup_count: 5
+
+scraping:
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  request_delay: 1.0
+  max_retries: 3
